@@ -1,22 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyToken } from './lib/auth';
+import { getJWTPayload, verifyToken } from './lib/auth';
+
+const redirect = (request: NextRequest) => {
+  return NextResponse.redirect(new URL('/', request.url));
+};
 
 export async function middleware(request: NextRequest) {
-  const token = request.cookies.get('token')?.value;
-
-  if (!token) {
-    return NextResponse.redirect(new URL('/login', request.url));
-  }
-
-  const payload = await verifyToken(token);
+  const payload = await getJWTPayload(request);
 
   if (!payload) {
-    return NextResponse.redirect(new URL('/login', request.url));
+    return redirect(request);
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/protected/:path*'],
+  matcher: ['/protected/:path*', '/api/user/:path*'],
 };

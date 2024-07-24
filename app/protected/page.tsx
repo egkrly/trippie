@@ -1,5 +1,10 @@
-import { Text } from '@mantine/core';
+import AddressWidget from '@/components/AddressWidget/AddressWidget';
+import { Container, Text } from '@mantine/core';
 
 export default function ProtectedPage() {
-  return <Text>welcome to a Protected page!</Text>;
+  return (
+    <Container>
+      <AddressWidget />
+    </Container>
+  );
 }

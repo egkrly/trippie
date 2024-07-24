@@ -7,6 +7,16 @@ CREATE TABLE IF NOT EXISTS users (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+INSERT INTO users (
+  username,
+  password,
+  email
+) VALUES (
+  'jocospeed98',
+  '$2a$10$hQ0k.X.ruMa2aN4Cod7D.umbmz6ek.j1Xd4/dBXTG72iHaHgXJBWW',
+  'jocospeed98@gmail.com'
+);
+
 CREATE TABLE user_addresses (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
@@ -19,4 +29,40 @@ CREATE TABLE user_addresses (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+INSERT INTO user_addresses (
+  user_id,
+  place_type,
+  country,
+  postal_code,
+  city,
+  street,
+  house_number
+) VALUES (
+  1,
+  'home',
+  'HU',
+  1024,
+  'Budapest',
+  'Petrezselyem utca',
+  '15-19'
+);
+
+INSERT INTO user_addresses (
+  user_id,
+  place_type,
+  country,
+  postal_code,
+  city,
+  street,
+  house_number
+) VALUES (
+  1,
+  'vacation',
+  'IT',
+  90133,
+  'Palermo',
+  'Via Cavour',
+  '112'
 );

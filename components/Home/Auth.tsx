@@ -22,7 +22,7 @@ export const LoginModal: FC = () => {
       if (response.ok) {
         const { token } = await response.json();
         document.cookie = `token=${token}; path=/; max-age=86400; secure; samesite=strict`;
-        window.location.href = '/protected';
+        window.location.href = '/dashboard';
       } else {
         const data = await response.json();
         console.error(data);
@@ -78,7 +78,7 @@ export const RegisterModal: FC = () => {
       if (response.ok) {
         const { token } = await response.json();
         document.cookie = `token=${token}; path=/; max-age=86400; secure; samesite=strict`;
-        window.location.href = '/protected';
+        window.location.href = '/dashboard';
       } else {
         const data = await response.json();
         console.error(data);

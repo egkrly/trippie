@@ -4,9 +4,10 @@ import { Accordion, Button, Flex, Group, Text } from '@mantine/core';
 import { FC, useEffect, useState } from 'react';
 import classes from './AddressWidget.module.css';
 import AddNewAddress from './AddNewAddress';
+import { AddressType, UserAddress } from '@/types';
 
 const AddressWidget: FC = () => {
-  const [addresses, setAddresses] = useState([]);
+  const [addresses, setAddresses] = useState<UserAddress[]>([]);
 
   const fetchAddresses = async () => {
     const response = await fetch('/api/user/addresses', {
@@ -16,7 +17,7 @@ const AddressWidget: FC = () => {
 
     if (response.ok) {
       const { addresses: responseAddresses } = await response.json();
-      setAddresses(responseAddresses);
+      setAddresses(responseAddresses as UserAddress[]);
     }
   };
 
@@ -24,27 +25,27 @@ const AddressWidget: FC = () => {
     fetchAddresses();
   }, []);
 
-  const emojis = {
+  const emojis: Record<AddressType, string> = {
     home: '🏠',
     vacation: '⛱️',
     other: '🏘️',
   };
 
-  const addressTypes = {
+  const addressTypes: Record<AddressType, string> = {
     home: 'Home',
     vacation: 'Vacation',
     other: 'Other',
   };
 
   const items = addresses.map((item) => (
-    <Accordion.Item value={item.id} key={item.id} className={classes.accordion_item}>
+    <Accordion.Item value={'' + item.id} key={item.id} className={classes.accordion_item}>
       <Group wrap="nowrap">
         <div>
           <Text>
-            {emojis[item.place_type]} {addressTypes[item.place_type]}
+            {emojis[item.type]} {addressTypes[item.type]}
           </Text>
           <Text size="sm" c="dimmed" fw={400}>
-            {item.country}, {item.postal_code} {item.city}, {item.street} {item.house_number}
+            {item.country}, {item.postalCode} {item.city}, {item.street} {item.houseNumber}
           </Text>
         </div>
       </Group>

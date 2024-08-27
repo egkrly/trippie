@@ -18,7 +18,5 @@ export const getAddressesForUser = async (userId: number) => {
     [userId]
   );
 
-  await pool.end();
-
   return addresses;
 };

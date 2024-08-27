@@ -1,9 +1,8 @@
 'use client';
 
-import { Accordion, Button, Flex, Group, Text } from '@mantine/core';
+import { Accordion, Flex, Group, Text } from '@mantine/core';
 import { FC, useEffect, useState } from 'react';
 import classes from './AddressWidget.module.css';
-import AddNewAddress from './AddNewAddress';
 import { AddressType, UserAddress } from '@/types';
 
 const AddressWidget: FC = () => {
@@ -22,6 +21,7 @@ const AddressWidget: FC = () => {
   };
 
   useEffect(() => {
+    // TODO: Move this to Redux side, and create hook to get addresses, or move to SSR
     fetchAddresses();
   }, []);
 
@@ -57,7 +57,6 @@ const AddressWidget: FC = () => {
       <Accordion chevronPosition="right" variant="contained">
         {items}
       </Accordion>
-      <AddNewAddress />
     </Flex>
   );
 };

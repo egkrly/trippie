@@ -1,3 +1,6 @@
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(255) UNIQUE NOT NULL,
@@ -17,6 +20,7 @@ INSERT INTO users (
   'jocospeed98@gmail.com'
 );
 
+DROP TABLE IF EXISTS user_addresses;
 CREATE TABLE user_addresses (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,

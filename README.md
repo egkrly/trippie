@@ -7,6 +7,11 @@ If you want to use pages router instead, see [next-pages-template](https://githu
 
 - API: Create custom 401, 404, 500 page templates and generalize redirects
 - API: Generic responses (validation errors, success messages, etc.)
+- Feature: Add AirBnb or Booking.com search
+- Feature: New trip wizard, ask for:
+  - Vacation start-end date?
+  - Country, city?
+  - Number of people?
 
 ## Project setup
 

@@ -16,3 +16,19 @@ export type UserAddress = {
   street: string;
   houseNumber: string;
 };
+
+export type Airport = {
+  id?: number;
+  code: string;
+  name: string;
+  cityCode: string;
+  cityName: string;
+  countryName: string;
+  countryCode: string;
+  timezone: number;
+  lat: string;
+  lon: string;
+  numAirports: number;
+  city: boolean;
+  searchCount: number;
+};

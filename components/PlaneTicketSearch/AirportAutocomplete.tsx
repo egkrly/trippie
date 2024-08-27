@@ -1,13 +1,13 @@
-import { Airport } from '@/types';
+import { FC, useState } from 'react';
 import { Autocomplete, Badge, Loader } from '@mantine/core';
 import { useDebouncedCallback } from '@mantine/hooks';
-import { FC, useState } from 'react';
+import { Airport } from '@/types';
 
 const airportToString = (airport: Airport) => {
   let countryName = airport.country_name.toLowerCase();
   countryName = countryName.charAt(0).toUpperCase() + countryName.slice(1);
 
-  return airport.code + ', ' + airport.city_name + ', ' + airport.name + ', ' + countryName;
+  return `${airport.code}, ${airport.city_name}, ${airport.name}, ${countryName}`;
 };
 
 const AirportAutocomplete: FC<{
@@ -21,7 +21,7 @@ const AirportAutocomplete: FC<{
 
   const fetchAirports = async (term: string) => {
     // TODO: Create an api call fn, or maybe implement Axios
-    const response = await fetch('/api/user/airports?term=' + term, {
+    const response = await fetch(`/api/user/airports?term=${term}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });

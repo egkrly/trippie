@@ -1,7 +1,18 @@
-# Mantine Next.js template
+# Trippie
 
-This is a template for [Next.js](https://nextjs.org/) app router + [Mantine](https://mantine.dev/).
-If you want to use pages router instead, see [next-pages-template](https://github.com/mantinedev/next-pages-template).
+This is a house project using the Mantine starter kit.
+Trippie helps in planning trips - booking hotels, flight tickets, shows nearby attractions and restaurants.
+
+## Project setup
+
+- Install docker
+- Build & start project with `make up`
+
+ℹ️ _The project is WIP. No production build, no CI/CD has been configured **yet** (maybe yet)._
+
+## Project features
+
+- Opening Skyscanner by filtering for airports, and date
 
 ## TODO's
 
@@ -12,31 +23,3 @@ If you want to use pages router instead, see [next-pages-template](https://githu
   - Vacation start-end date?
   - Country, city?
   - Number of people?
-
-## Project setup
-
-- Install docker
-- Build & start project with `make up`
-
-## npm scripts
-
-### Build and dev scripts
-
-- `dev` – start dev server
-- `build` – bundle application for production
-- `analyze` – analyzes application bundle with [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
-
-### Testing scripts
-
-- `typecheck` – checks TypeScript types
-- `lint` – runs ESLint
-- `prettier:check` – checks files with Prettier
-- `jest` – runs jest tests
-- `jest:watch` – starts jest watch
-- `test` – runs `jest`, `prettier:check`, `lint` and `typecheck` scripts
-
-### Other scripts
-
-- `storybook` – starts storybook dev server
-- `storybook:build` – build production storybook bundle to `storybook-static`
-- `prettier:write` – formats all files with Prettier
